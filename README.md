@@ -81,3 +81,15 @@ You can also use this [.reg file](https://github.com/distantorigin/XPS-Enhanceme
 To utilize your applications key after changing function key behavior, you will need to press FN+right alt. For many, this is undesirable, and I find myself rarely using right alt the majority of the time. This registry tweak will change right alt to act as an applications key.
 
 [Download](https://github.com/distantorigin/XPS-Enhancements/blob/master/Applications.reg) | [Download SharpKeys for further keymap modification](http://www.randyrants.com/category/sharpkeys/)
+
+## Advanced Performance Tweaks
+
+### Power Plans
+
+It is often beneficial to switch power plans automatically based on what you're doing with your laptop. An application that does a very good job at this is [Power Plan Switcher](https://github.com/petrroll/PowerSwitcher). Once installed, this little program will sit in your system tray and allows you to quickly change your power plan by right-clicking the icon. More importantly, it will start up with Windows and has the ability to switch the current plan when the AC adapter is plugged or unplugged. I have mine set to go to 'High Performance' when on AC and 'Balanced' when on battery.
+
+As of the latest Fall Creators Update, Windows 10 has removed all power plans save for the default. You can get them back by creating a new power plan and selecting the type of power plan (balanced, high performance, power saver) and naming it accordingly. Take note that Connected Standby must be disabled for these secondary plans to appear.
+
+### Undervolting and Speed Shift
+
+TBD
