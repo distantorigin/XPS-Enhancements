@@ -1,0 +1,83 @@
+# Dell XPS Enhancements
+
+This is a comprehensive list of enhancements that aim to create the optimal Dell XPS 13/15 experience. Enhancements have been exclusively tested on a [Dell XPS 13 9370](http://www.dell.com/en-us/shop/dell-laptops/new-xps-13/spd/xps-13-9370-laptop), and should work on other configurations unless otherwise noted. Changes or additions are welcome in the form of pull requests.
+
+## Audio
+
+The Waves MaxAudio software, which is part of the Dell RealTek drivers and is packaged with the Dell factory image causes numerous problems:
+
+* Even with all effects disabled, post-processing still occurs.
+* Connecting a device to the headphone jack will nag you with a pop-up asking you to pick what device you just plugged in (headphone, headset or microphone). Instructing the software not to ask again is inconsistent and will often be reset on reboot.
+* Using the Generic Microsoft High Definition Audio drivers will produce crackling and popping under certain conditions.
+* Waves MaxAudio is known to push audio beyond acceptable volumes, which can cause physical speakre damage to your laptop.
+
+Luckily, a user has created a copy of the Dell RealTek drivers without Waves MaxAudio, which removes post-PROCESSING and the GUI pop-up. This is confirmed to work on Dell XPS 13 93XX and Dell XPS 9550/9560. I'm running it on the latest Dell XPS 13 9370 with success. It may work on other Dell laptops that ship with Waves MaxAudio; if you are aware of models where this driver works, please post to [/r/dell](https://www.reddit.com/r/dell/) and submit a pull request so I can update the guide.
+
+Source: [Kevin Shroff's Modded Realtek Audio Drivers](https://www.reddit.com/r/Dell/comments/6nt3ch/kevin_shroffs_modded_realtek_audio_drivers_for/) | [Download](https://mega.nz/#!E6xGWZQa!4UWhJ4oDcaVN3Y73cU9x8PEHt-8tblCu5yw9fbVsME0)
+
+*NOTE*: Waves MaxAudio is not the same as the Dell Audio Application. These are separate drivers and you should not run this if your laptop came with the Dell Audio Application instead of Waves MaxAudio.
+
+Steps are included below for mirroring purposes. All credit should be given to [Kevin Shroff](http://paypal.me/kevinshroff) and the linked thread should be used as an official reference, as it is much more comprehensive.
+
+Installation Instructions:
+1. Disable Secure Boot: Secure Boot must be disabled in the BIOS/UEFI of your computer. This is required to install the driver, as this modded driver is not signed. After driver installation Secure Boot will be re-enabled in later steps
+2. Run Command Prompt with Administrator privileges, then run the following commands, pressing enter after each:
+
+    ```
+    bcdedit.exe -set loadoptions DISABLE_INTEGRITY_CHECKS
+    bcdedit.exe -set TESTSIGNING ON
+    ```
+
+3. Reboot
+4. Uninstall "Realtek High Definition Audio" from Control Panel, and uninstall "Realtek Audio" from Device Manager - do not reboot!
+5. Install [Driver Sweeper](https://mega.nz/#!wN8BSIwK!Fo_sQzDsvLNkpwLngESfBaiBHtsMiskGxCjNZV_Vs7s), select Realtek - Sound, and then click clean - do not reboot!
+6. Navigate to where you extracted the driver zip download, and open the "RealtekHDAudio" folder. Run "Setup.exe" inside of it and install the driver just like a normal Realtek Audio driver.
+7. You will get a popup that asks if the driver is safe and should be installed - click "Yes, install this driver" (or something along those lines) - this popup comes up only because the driver signature is not signed, as it is modified. Driver itself is safe and you can scan it with Antivirus for assurance.
+8. After the installation is done, reboot
+9. Run Command Prompt with Administrator privileges, then run the following commands, pressing enter after each:
+
+    ```
+    bcdedit.exe -set loadoptions ENABLE_INTEGRITY_CHECKS
+    bcdedit.exe -set TESTSIGNING OFF
+    ```
+
+10. Boot back into your BIOS/UEFI and turn back on Secure Boot
+11. The testsigning watermark (some text in the corner of your screen, on your wallpaper) should be gone now. If it is not gone, run step 7 again and reboot, then continue to step 10
+12. Open task manager, go to startup tab, and disable both "HD Audio Background Process" and "Realtek HD Audio Manager", and reboot.
+13. Done! Enjoy your crystal-clear audio experience.
+
+## Killer Wireless
+
+The Killer wireless 1435/1535 NIC is notably unreliable, causing disconnections, lag, or even going as far as crashing routers with outdated firmware. For laptops earlier than the 9370, the card can easily be replaced with something like the Intel 8265 adapter. However, on the 9370 and presumably later models of the XPS 15, the NIC is soldered. I have had a great deal of success by uninstalling the Killer Wireless Suite driver and control panel completely, and replacing it with only the driver distributed by Killer, not Dell.
+
+1. Download the installation package from [Killer's Website](https://www.killernetworking.com/driver-downloads/category/other-downloads), making sure that you only get the driver package, not the control panel.
+2. Uninstall all Killer Wireless products from your system, and reboot. (You will lose network connectivity temporarily - this is normal.)
+3. Install the driver file you downloaded, and reboot again.
+
+## Bloatware and Driver Maintenance
+
+The Dell factory image shipped with XPS laptops comes with a great deal of Dell applications, most of which can be uninstalled. These applications can always be reinstalled from the Windows Store. You should meticulously look through and remove any bloatware, such as Mcafee or metro games like Candy Crush.
+
+I would also advise removing the Dell Update utility, as this may install newer, potentially broken drivers over your existing working ones. You should always use the Dell website and a healthy dose of common sense to ascertain whether you should update. [Snappy Driver Installer Origin](http://www.snappy-driver-installer.org/) is a good source of keeping up-to-date drivers that are provided directly by the hardware vendor, not Dell. I've found it especially useful for Chipset updates.
+
+## Function Key Behavior
+
+Out of the box, your Dell XPS machine will have the function keys "locked." this means that function keys, rather than exhibiting typical functions, will alter mute, volume, screen brightness, media playback and keyboard backlight. To fix this you should enter the system BIOS by restarting and holding down F2 at the Dell logo, then search under advanced for 'Function Key Lock' or 'Function Key Behavior'. What this is called is dependent on your BIOS version. Alternatively, if you wish to temporarily modify the behavior of your function keys, press FN+escape while booted into the operating system of your choice. I've been told that Windows 10 will allow you to change this from within Windows Mobility Center, though have not been able to reproduce this.
+
+## Disable Connected Standby
+
+Connected Standby (also known as InstantGo Technology) is a low-power state that allows Windows 8 and later to function more like a tablet or smartphone than a typical PC, waking up for brief stints to allow registered apps to send a limited amount of network traffic in and out. It's supported on most modern AMD and Intel processors. Unfortunately, this can drain your battery rather quickly, and in later versions of Windows 10, it will cause various power plans to not appear at all unless disabled. To disable it, do the following:
+
+1. Open the Registry Editor (regedit.exe from start menu search or run).
+2. Browse to HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power
+3. Double-click CSEnabled and set it to 0, then click OK. For full effect you should reboot.
+
+You can also use this [.reg file](https://github.com/distantorigin/XPS-Enhancements/blob/master/ConnectedStandby.reg) which will automatically set CSEnabled to 0.
+
+## Applications Key
+
+*NOTE*: This tweak is not XPS specific.
+
+To utilize your applications key after changing function key behavior, you will need to press FN+right alt. For many, this is undesirable, and I find myself rarely using right alt the majority of the time. This registry tweak will change right alt to act as an applications key.
+
+[Download](https://github.com/distantorigin/XPS-Enhancements/blob/master/Applications.reg) | [Download SharpKeys for further keymap modification](http://www.randyrants.com/category/sharpkeys/)
