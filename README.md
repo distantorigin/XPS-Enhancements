@@ -122,9 +122,11 @@ TBD
 This section is still in progress and will be recieving updates in the near future. These are small tweaks that I can verify work on an XPS 13 with Windows 10, though they aren't necessarily machine specific and only serve to enhance performance and privacy.
 
 * Disable Cortana.
- *NOTE*: You should also disable Cortana from within the Group Policy Editor. Go to run, type `gpedit.msc`, and go to Administrative Templates -> Windows Components -> Search. Disable 'Allow Cortana'.
-* Disable everything under Settings -> Privacy.
-* Block unnecessary outbound network connectivity with [TinyWall](https://tinywall.pados.hu/).
+
+ *NOTE*: You should also disable Cortana from within the Group Policy Editor. Go to run, type `gpedit.msc`, and go to Administrative Templates -> Windows Components -> Search. Disable 'Allow Cortana'
+
+* Disable everything under Settings -> Privacy
+* Block unnecessary outbound network connectivity with [TinyWall](https://tinywall.pados.hu/)
 * Install [Classic Shell](http://classicshell.net/)
 * Install Windows 7 Task Manager [here](https://winaero.com/blog/get-classic-old-task-manager-in-windows-10/)
 * Disable unnecessary services by following [Black Viper's Windows 10 Service Configurations](http://www.blackviper.com/service-configurations/black-vipers-windows-10-service-configurations/)
