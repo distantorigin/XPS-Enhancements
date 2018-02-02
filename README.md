@@ -119,7 +119,7 @@ TBD
 
 ## Miscellaneous Tweaks
 
-This section is still in progress and will be recieving updates in the near future. These are small tweaks that I can verify work on an XPS 13 with Windows 10, though they aren't necessarily machine specific and only serve to enhance performance and privacy.
+This section is still in progress and will be receiving updates in the near future. These are small tweaks that I can verify work on an XPS 13 with Windows 10, though they aren't necessarily machine specific and only serve to enhance performance and privacy.
 
 * Disable Cortana.
  *NOTE*: You should also disable Cortana from within the Group Policy Editor. Go to run, type `gpedit.msc`, and go to Administrative Templates -> Windows Components -> Search. Disable 'Allow Cortana'
