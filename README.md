@@ -19,7 +19,8 @@ Source: [Kevin Shroff's Modded Realtek Audio Drivers](https://www.reddit.com/r/D
 
 Steps are included below for mirroring purposes. All credit should be given to [Kevin Shroff](http://paypal.me/kevinshroff) and the linked thread should be used as an official reference, as it is much more comprehensive.
 
-Installation Instructions:
+### Installation Instructions
+
 1. Disable Secure Boot: Secure Boot must be disabled in the BIOS/UEFI of your computer. This is required to install the driver, as this modded driver is not signed. After driver installation Secure Boot will be re-enabled in later steps
 2. Run Command Prompt with Administrator privileges, then run the following commands, pressing enter after each:
 
@@ -48,7 +49,7 @@ Installation Instructions:
 
 ## Killer Wireless
 
-The Killer wireless 1435/1535 NIC is notably unreliable, causing disconnections, lag, or even going as far as crashing routers with outdated firmware. For laptops earlier than the 9370, the card can easily be replaced with something like the Intel 8265 adapter. However, on the 9370 and presumably later models of the XPS 15, the NIC is soldered. I have had a great deal of success by uninstalling the Killer Wireless Suite driver and control panel completely, and replacing it with only the driver distributed by Killer, not Dell.
+The Killer wireless 1435/1535 NIC is notably unreliable, causing disconnections, lag, or even going as far as crashing routers with outdated firmware. For laptops earlier than the 9370, the card can easily be replaced with something like the Intel 8265 adapter. However, on the 9370 and presumably later models of the XPS 15, the NIC is soldered. I have had significant success by uninstalling the Killer Wireless Suite driver and control panel completely, and replacing it with only the driver distributed by Killer, not Dell.
 
 1. Download the installation package from [Killer's Website](https://www.killernetworking.com/driver-downloads/category/other-downloads), making sure that you only get the driver package, not the control panel.
 2. Uninstall all Killer Wireless products from your system, and reboot. (You will lose network connectivity temporarily - this is normal.)
@@ -90,6 +91,14 @@ It is often beneficial to switch power plans automatically based on what you're 
 
 As of the latest Fall Creators Update, Windows 10 has removed all power plans save for the default. You can get them back by creating a new power plan and selecting the type of power plan (balanced, high performance, power saver) and naming it accordingly. Take note that Connected Standby must be disabled for these secondary plans to appear.
 
+Using an Intel 8th Generation I7 8550U,  my CPU's base frequency is increased from 1.8GHz to 2.0GHz under the high performance plan. Your mileage may vary.
+
 ### Undervolting and Speed Shift
 
-TBD
+Undervolting slightly reduces the voltage supplied to the CPU. The results of this can vary, though upon a successful undervolt you should achieve the same performance with lower temperatures and less thermal throttling. Speed Shift is available on Intel processors and is the predecessor to Intel Speed Step. Unfortunately, most Dell XPS laptops do not have the option for Speed Shift enabled in the Dell BIOS, although the hardware supports it. I found that following the gist of [this](https://www.notebookcheck.net/How-to-Lower-Temperatures-Stop-Throttling-and-Increase-Battery-Life-The-ThrottleStop-Guide-2017.213140.0.html) guide for ThrottleStop at Notebookcheck immensely helpful.
+
+I've spent a while tuning my hardware by small increments, and the results are noticeable. If you're running a mobile Kaby Lake processor, your undervolt offset should range anywhere between -80mv to -115mv. Tweak as needed. Skylake and earlier are more flexible, since they require more power. You may be able to go all the way down to a -135mv offset with these older processors, though you shouldn't move your offset by huge values at a time. Generally the process goes:
+
+1. Start at -80mv and gradually lower your offset by -5 or -10MV.
+2. Run a stress test, such as [Prime95](https://www.mersenne.org/download/) for several hours. If your offset is too low, the operating system will crash and land you at a blue screen. Critical system errors will reset your voltage settings back to default.
+3. If your system doesn't crash after an extended period, go back to step 1.
