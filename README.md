@@ -83,6 +83,16 @@ To utilize your applications key after changing function key behavior, you will 
 
 [Download](https://github.com/distantorigin/XPS-Enhancements/blob/master/Applications.reg) | [Download SharpKeys for further keymap modification](http://www.randyrants.com/category/sharpkeys/)
 
+## Save Your Windows Product Key
+
+Open up a command prompt window under your administrator account and type:
+
+```
+wmic path softwarelicensingservice get OA3xOriginalProductKey > "%UserProfile%\documents\Windows Product Key.txt"
+````
+
+This will create a file in your Documents folder aptly named Windows Product Key.txt which contains your Windows 10 product key.
+
 ## Advanced Performance Tweaks
 
 ### Power Plans
@@ -95,7 +105,7 @@ Using an Intel 8th Generation I7 8550U,  my CPU's base frequency is increased fr
 
 ### Undervolting and Speed Shift
 
-Undervolting slightly reduces the voltage supplied to the CPU. The results of this can vary, though upon a successful undervolt you should achieve the same performance with lower temperatures and less thermal throttling. Speed Shift is available on Intel processors and is the successor to Intel Speed Step. Unfortunately, most Dell XPS laptops do not have the option for Speed Shift enabled in the Dell BIOS, although the hardware supports it. I found that following the gist of [this](https://www.notebookcheck.net/How-to-Lower-Temperatures-Stop-Throttling-and-Increase-Battery-Life-The-ThrottleStop-Guide-2017.213140.0.html) guide for ThrottleStop at Notebookcheck immensely helpful.
+Undervolting slightly reduces the voltage supplied to the CPU. The results of this can vary, though upon a successful undervolt you should achieve the same performance with lower temperatures and less thermal throttling. Speed Shift is available on Intel processors and is the predecessor to Intel Speed Step. Unfortunately, most Dell XPS laptops do not have the option for Speed Shift enabled in the Dell BIOS, although the hardware supports it. I found that following the gist of [this](https://www.notebookcheck.net/How-to-Lower-Temperatures-Stop-Throttling-and-Increase-Battery-Life-The-ThrottleStop-Guide-2017.213140.0.html) guide for ThrottleStop at Notebookcheck immensely helpful.
 
 I've spent a while tuning my hardware by small increments, and the results are noticeable. If you're running a mobile Kaby Lake processor, your undervolt offset should range anywhere between -80mv to -115mv. Tweak as needed. Skylake and earlier are more flexible, since they require more power. You may be able to go all the way down to a -135mv offset with these older processors, though you shouldn't move your offset by huge values at a time. Generally the procedure goes:
 
@@ -109,10 +119,13 @@ TBD
 
 ## Miscellaneous Tweaks
 
-This section is still in progress and will be receiving updates in the near future. These are small tweaks that I can verify work on an XPS 13 with Windows 10, though they aren't necessarily machine specific and only serve to enhance performance and privacy.
+This section is still in progress and will be recieving updates in the near future. These are small tweaks that I can verify work on an XPS 13 with Windows 10, though they aren't necessarily machine specific and only serve to enhance performance and privacy.
 
 * Disable Cortana.
+ *NOTE*: You should also disable Cortana from within the Group Policy Editor. Go to run, type `gpedit.msc`, and go to Administrative Templates -> Windows Components -> Search. Disable 'Allow Cortana'.
+* Disable everything under Settings -> Privacy.
 * Block unnecessary outbound network connectivity with [TinyWall](https://tinywall.pados.hu/).
 * Install [Classic Shell](http://classicshell.net/)
 * Install Windows 7 Task Manager [here](https://winaero.com/blog/get-classic-old-task-manager-in-windows-10/)
 * Disable unnecessary services by following [Black Viper's Windows 10 Service Configurations](http://www.blackviper.com/service-configurations/black-vipers-windows-10-service-configurations/)
+* Consider running software to take care of other aspects of Windows 10 spying, such as [ShutUP10](https://www.oo-software.com/en/shutup10) or [DisableWinTracking (GitHub Page)](https://github.com/10se1ucgo/DisableWinTracking/releases)
