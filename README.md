@@ -84,7 +84,7 @@ To utilize your applications key after changing function key behavior, you will 
 [Download](https://github.com/distantorigin/XPS-Enhancements/blob/master/Applications.reg) | [Download SharpKeys for further keymap modification](http://www.randyrants.com/category/sharpkeys/)
 
 ## Notebook Sleep FN Key shortcut
-Increasingly, as I switched between various keyboards, I found myself often triggering the sleep function via the FN+end shortcut. If like me, you frequently do this in the midlde of your work, you can disable this by following these steps (Windows 10 only, sorry Linux users):
+Increasingly, as I switched between various keyboards, I found myself often triggering the sleep function via the FN+end shortcut. If like me, you frequently do this in the middle of your work, you can disable this by following these steps (Windows 10 only, sorry Linux users):
 1. Go to settings -> System -> Power and Sleep.
 2. Scroll down to Related Settings, and then click 'Additional Power Settings'.
 3. Go to 'Choose what the power buttons do', and under the options for sleep button, choose do nothing.
