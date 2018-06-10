@@ -2,6 +2,22 @@
 
 This is a comprehensive list of enhancements that aim to create the optimal Dell XPS 13/15 experience. Enhancements have been exclusively tested on a [Dell XPS 13 9370](http://www.dell.com/en-us/shop/dell-laptops/new-xps-13/spd/xps-13-9370-laptop), and should work on other configurations unless otherwise noted. Changes or additions are welcome in the form of pull requests.
 
+* [Audio](#audio)
+  * [Installation Instructions](#installation-instructions)
+* [Killer Wireless](#killer-wireless)
+* [Intel Graphics Drivers](#intel-graphics-drivers)
+* [Bloatware and Driver Maintenance](#bloatware-and-driver-maintenance)
+* [Function Key Behavior](#function-key-behavior)
+* [Disable Connected Standby](#disable-connected-standby)
+* [Applications Key](#applications-key)
+* [Notebook Sleep FN Key shortcut](#notebook-sleep-fn-key-shortcut)
+* [Save Your Windows Product Key](#save-your-windows-product-key)
+* [Advanced Performance Tweaks](#advanced-performance-tweaks)
+  * [Power Plans](#power-plans)
+  * [Undervolting and Speed Shift](#undervolting-and-speed-shift)
+  * [Dell Power Manager](#dell-power-manager)
+* [Miscellaneous Tweaks](#miscellaneous-tweaks)
+
 ## Audio
 
 The Waves MaxAudio software, which is part of the Dell RealTek drivers and is packaged with the Dell factory image causes numerous problems:
@@ -24,7 +40,7 @@ Steps are included below for mirroring purposes. All credit should be given to [
 1. Disable Secure Boot: Secure Boot must be disabled in the BIOS/UEFI of your computer. This is required to install the driver, as this modded driver is not signed. After driver installation Secure Boot will be re-enabled in later steps
 2. Run Command Prompt with Administrator privileges, then run the following commands, pressing enter after each:
 
-    ```
+    ```powershell
     bcdedit.exe -set loadoptions DISABLE_INTEGRITY_CHECKS
     bcdedit.exe -set TESTSIGNING ON
     ```
@@ -37,7 +53,7 @@ Steps are included below for mirroring purposes. All credit should be given to [
 8. After the installation is done, reboot
 9. Run Command Prompt with Administrator privileges, then run the following commands, pressing enter after each:
 
-    ```
+    ```powershell
     bcdedit.exe -set loadoptions ENABLE_INTEGRITY_CHECKS
     bcdedit.exe -set TESTSIGNING OFF
     ```
@@ -54,6 +70,23 @@ The Killer wireless 1435/1535 NIC is notably unreliable, causing disconnections,
 1. Download the installation package from [Killer's Website](https://www.killernetworking.com/driver-downloads/category/other-downloads), making sure that you only get the driver package, not the control panel.
 2. Uninstall all Killer Wireless products from your system, and reboot. (You will lose network connectivity temporarily - this is normal.)
 3. Install the driver file you downloaded, and reboot again.
+
+## Intel Graphics Drivers
+
+Dell ships a locked down version of the Intel Graphics Driver, and an attempt to install the driver distributed by Intel will be met with the message "The driver being installed is not validated for this computer."
+
+On Dell XPS 15 (95XX) models which include a dual GPU, deviating from the Dell supplied drivers may lead to side effects. On Dell XPS 13 (93XX), the Dell supplied driver can be successfully replaced with that of Intel.
+
+To do so, download the .zip version of the Intel driver [here](https://www.intel.com/content/www/us/en/support/products/128199/graphics-drivers/graphics-for-8th-generation-intel-processors.html) and unpack the zip archive, then follow the steps illustrated [here](https://www.howtogeek.com/343287/how-to-fix-the-driver-being-installed-is-not-validated-for-this-computer-on-intel-computers/) or described below.
+
+1. Access the device manager by right-clicking the "Start" button or by pressing Windows Key + X and selecting "Device Manager"
+2. Under "Display adapters", right click on the Intel HD Graphics device, and select "Properties"
+3. Under the "Driver" tab in the properties dialog, select "Update Driver"
+4. Choose "Browse my computer for driver software" in the wizard, and select "Let me pick from a list of available drivers on my computer"
+5. Click the "Have Disk..." button and point the dialog at the directory into which the zip driver was extracted, locating the "igdlh64.inf" therein.
+6. Select the driver and install it.
+
+After a successful installation, re-install the driver using the Intel installer; this procedure is necessary to break away from the Dell locked driver once. Subsequent installations of the Intel driver will succeed by simply running the installer.
 
 ## Bloatware and Driver Maintenance
 
@@ -85,6 +118,7 @@ To utilize your applications key after changing function key behavior, you will 
 
 ## Notebook Sleep FN Key shortcut
 Increasingly, as I switched between various keyboards, I found myself often triggering the sleep function via the FN+end shortcut. If like me, you frequently do this in the middle of your work, you can disable this by following these steps (Windows 10 only, sorry Linux users):
+
 1. Go to settings -> System -> Power and Sleep.
 2. Scroll down to Related Settings, and then click 'Additional Power Settings'.
 3. Go to 'Choose what the power buttons do', and under the options for sleep button, choose do nothing.
@@ -93,9 +127,9 @@ Increasingly, as I switched between various keyboards, I found myself often trig
 
 Open up a command prompt window under your administrator account and type:
 
-```
-wmic path softwarelicensingservice get OA3xOriginalProductKey > "%UserProfile%\documents\Windows Product Key.txt"
-````
+    ```powershell
+    wmic path softwarelicensingservice get OA3xOriginalProductKey > "%UserProfile%\documents\Windows Product Key.txt"
+    ````
 
 This will create a file in your Documents folder aptly named Windows Product Key.txt which contains your Windows 10 product key.
 
