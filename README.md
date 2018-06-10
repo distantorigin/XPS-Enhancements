@@ -83,7 +83,7 @@ To do so, download the .zip version of the Intel driver [here](https://www.intel
 2. Under "Display adapters", right click on the Intel HD Graphics device, and select "Properties"
 3. Under the "Driver" tab in the properties dialog, select "Update Driver"
 4. Choose "Browse my computer for driver software" in the wizard, and select "Let me pick from a list of available drivers on my computer"
-5. Click the "Have Disk..." button and point the dialog at the directory into which the zip driver was extracted, locating the "igdlh64.inf" therein.
+5. Click the "Have Disk..." button and point the dialog at the directory into which the zip driver was extracted, locating the "igdlh64.inf" file therein.
 6. Select the driver and install it.
 
 After a successful installation, re-install the driver using the Intel installer; this procedure is necessary to break away from the Dell locked driver once. Subsequent installations of the Intel driver will succeed by simply running the installer.
@@ -127,9 +127,9 @@ Increasingly, as I switched between various keyboards, I found myself often trig
 
 Open up a command prompt window under your administrator account and type:
 
-    ```powershell
-    wmic path softwarelicensingservice get OA3xOriginalProductKey > "%UserProfile%\documents\Windows Product Key.txt"
-    ````
+```powershell
+wmic path softwarelicensingservice get OA3xOriginalProductKey > "%UserProfile%\documents\Windows Product Key.txt"
+```
 
 This will create a file in your Documents folder aptly named Windows Product Key.txt which contains your Windows 10 product key.
 
