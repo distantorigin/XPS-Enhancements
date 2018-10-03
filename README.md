@@ -8,7 +8,6 @@ This is a comprehensive list of enhancements that aim to create the optimal Dell
 * [Intel Graphics Drivers](#intel-graphics-drivers)
 * [Bloatware and Driver Maintenance](#bloatware-and-driver-maintenance)
 * [Function Key Behavior](#function-key-behavior)
-* [Disable Connected Standby](#disable-connected-standby)
 * [Applications Key](#applications-key)
 * [Notebook Sleep FN Key shortcut](#notebook-sleep-fn-key-shortcut)
 * [Save Your Windows Product Key](#save-your-windows-product-key)
@@ -97,16 +96,6 @@ I would also advise removing the Dell Update utility, as this may install newer,
 ## Function Key Behavior
 
 Out of the box, your Dell XPS machine will have the function keys "locked." this means that function keys, rather than exhibiting typical functions, will alter mute, volume, screen brightness, media playback and keyboard backlight. To fix this you should enter the system BIOS by restarting and holding down F2 at the Dell logo, then search under advanced for 'Function Key Lock' or 'Function Key Behavior'. What this is called is dependent on your BIOS version. Alternatively, if you wish to temporarily modify the behavior of your function keys, press FN+escape while booted into the operating system of your choice. I've been told that Windows 10 will allow you to change this from within Windows Mobility Center, though have not been able to reproduce this.
-
-## Disable Connected Standby
-
-Connected Standby (also known as InstantGo Technology) is a low-power state that allows Windows 8 and later to function more like a tablet or smartphone than a typical PC, waking up for brief stints to allow registered apps to send a limited amount of network traffic in and out. It's supported on most modern AMD and Intel processors. Unfortunately, this can drain your battery rather quickly, and in later versions of Windows 10, it will cause various power plans to not appear at all unless disabled. To disable it, do the following:
-
-1. Open the Registry Editor (regedit.exe from start menu search or run).
-2. Browse to HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power
-3. Double-click CSEnabled and set it to 0, then click OK. For full effect you should reboot.
-
-You can also use this [.reg file](https://github.com/distantorigin/XPS-Enhancements/blob/master/ConnectedStandby.reg) which will automatically set CSEnabled to 0.
 
 ## Applications Key
 
