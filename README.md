@@ -24,7 +24,7 @@ The Waves MaxAudio software, which is part of the Dell RealTek drivers and is pa
 * Even with all effects disabled, post-processing still occurs.
 * Connecting a device to the headphone jack will nag you with a pop-up asking you to pick what device you just plugged in (headphone, headset or microphone). Instructing the software not to ask again is inconsistent and will often be reset on reboot.
 * Using the Generic Microsoft High Definition Audio drivers will produce crackling and popping under certain conditions.
-* Waves MaxAudio is known to push audio beyond acceptable volumes, which can cause physical speakre damage to your laptop.
+* Waves MaxAudio is known to push audio beyond acceptable volumes, which can cause physical speaker damage to your laptop.
 
 Luckily, a user has created a copy of the Dell RealTek drivers without Waves MaxAudio, which removes post-PROCESSING and the GUI pop-up. This is confirmed to work on Dell XPS 13 93XX and Dell XPS 9550/9560. I'm running it on the latest Dell XPS 13 9370 with success. It may work on other Dell laptops that ship with Waves MaxAudio; if you are aware of models where this driver works, please post to [/r/dell](https://www.reddit.com/r/dell/) and submit a pull request so I can update the guide.
 
