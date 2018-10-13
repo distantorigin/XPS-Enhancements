@@ -19,16 +19,16 @@ This is a comprehensive list of enhancements that aim to create the optimal Dell
 
 ## Audio
 
-The Waves MaxAudio software, which is part of the Dell RealTek drivers and is packaged with the Dell factory image causes numerous problems:
+The Waves MaxxAudio software, which is part of the Dell RealTek drivers and is packaged with the Dell factory image causes numerous problems:
 
 * Even with all effects disabled, post-processing still occurs.
 * Connecting a device to the headphone jack will nag you with a pop-up asking you to pick what device you just plugged in (headphone, headset or microphone). Instructing the software not to ask again is inconsistent and will often be reset on reboot.
 * Using the Generic Microsoft High Definition Audio drivers will produce crackling and popping under certain conditions.
-* Waves MaxAudio is known to push audio beyond acceptable volumes, which can cause physical speaker damage to your laptop.
+* Waves MaxxAudio is known to push audio beyond acceptable volumes, which can cause physical speaker damage to your laptop.
 
-*NOTE*: Waves MaxAudio is not the same as the Dell Audio Application. These are separate drivers and you should not follow these instructions if your laptop came with the Dell Audio Application instead of Waves MaxAudio. These instructions will work for any laptop with the Realtek driver package, not only XPS.
+*NOTE*: Waves MaxxAudio is not the same as the Dell Audio Application. These are separate drivers and you should not follow these instructions if your laptop came with the Dell Audio Application instead of Waves MaxxAudio. These instructions will work for any laptop with the Realtek driver package, not only XPS.
 
-*NOTE2*: Previously, there were instructions here for installing a modified Realtek driver that removed Waves MaxAudio. As of Windows 10 1809, these instructions no longer work and have been removed. If necessary, the instructions can be found [here](https://github.com/distantorigin/XPS-Enhancements/tree/43132b1df3eb53621d978fe2921ee27433afad43#audio)
+*NOTE2*: Previously, there were instructions here for installing a modified Realtek driver that removed Waves MaxxAudio. As of Windows 10 1809, these instructions no longer work and have been removed. If necessary, the instructions can be found [here](https://github.com/distantorigin/XPS-Enhancements/tree/43132b1df3eb53621d978fe2921ee27433afad43#audio)
 
 ### Instructions
 
