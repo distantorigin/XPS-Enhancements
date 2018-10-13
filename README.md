@@ -26,41 +26,20 @@ The Waves MaxAudio software, which is part of the Dell RealTek drivers and is pa
 * Using the Generic Microsoft High Definition Audio drivers will produce crackling and popping under certain conditions.
 * Waves MaxAudio is known to push audio beyond acceptable volumes, which can cause physical speaker damage to your laptop.
 
-Luckily, a user has created a copy of the Dell RealTek drivers without Waves MaxAudio, which removes post-PROCESSING and the GUI pop-up. This is confirmed to work on Dell XPS 13 93XX and Dell XPS 9550/9560. I'm running it on the latest Dell XPS 13 9370 with success. It may work on other Dell laptops that ship with Waves MaxAudio; if you are aware of models where this driver works, please post to [/r/dell](https://www.reddit.com/r/dell/) and submit a pull request so I can update the guide.
+*NOTE*: Waves MaxAudio is not the same as the Dell Audio Application. These are separate drivers and you should not follow these instructions if your laptop came with the Dell Audio Application instead of Waves MaxAudio. These instructions will work for any laptop with the Realtek driver package, not only XPS.
 
-Source: [Kevin Shroff's Modded Realtek Audio Drivers](https://www.reddit.com/r/Dell/comments/6nt3ch/kevin_shroffs_modded_realtek_audio_drivers_for/) | [Download](https://mega.nz/#!E6xGWZQa!4UWhJ4oDcaVN3Y73cU9x8PEHt-8tblCu5yw9fbVsME0)
+*NOTE2*: Previously, there were instructions here for installing a modified Realtek driver that removed Waves MaxAudio. As of Windows 10 1809, these instructions no longer work and have been removed. If necessary, the instructions can be found [here](https://github.com/distantorigin/XPS-Enhancements/tree/43132b1df3eb53621d978fe2921ee27433afad43#audio)
 
-*NOTE*: Waves MaxAudio is not the same as the Dell Audio Application. These are separate drivers and you should not run this if your laptop came with the Dell Audio Application instead of Waves MaxAudio.
+### Instructions
 
-Steps are included below for mirroring purposes. All credit should be given to [Kevin Shroff](http://paypal.me/kevinshroff) and the linked thread should be used as an official reference, as it is much more comprehensive.
-
-### Installation Instructions
-
-1. Disable Secure Boot: Secure Boot must be disabled in the BIOS/UEFI of your computer. This is required to install the driver, as this modded driver is not signed. After driver installation Secure Boot will be re-enabled in later steps
-2. Run Command Prompt with Administrator privileges, then run the following commands, pressing enter after each:
-
-    ```powershell
-    bcdedit.exe -set loadoptions DISABLE_INTEGRITY_CHECKS
-    bcdedit.exe -set TESTSIGNING ON
-    ```
-
-3. Reboot
-4. Uninstall "Realtek High Definition Audio" from Control Panel, and uninstall "Realtek Audio" from Device Manager - do not reboot!
-5. Install [Driver Sweeper](https://mega.nz/#!wN8BSIwK!Fo_sQzDsvLNkpwLngESfBaiBHtsMiskGxCjNZV_Vs7s), select Realtek - Sound, and then click clean - do not reboot!
-6. Navigate to where you extracted the driver zip download, and open the "RealtekHDAudio" folder. Run "Setup.exe" inside of it and install the driver just like a normal Realtek Audio driver.
-7. You will get a popup that asks if the driver is safe and should be installed - click "Yes, install this driver" (or something along those lines) - this popup comes up only because the driver signature is not signed, as it is modified. Driver itself is safe and you can scan it with Antivirus for assurance.
-8. After the installation is done, reboot
-9. Run Command Prompt with Administrator privileges, then run the following commands, pressing enter after each:
-
-    ```powershell
-    bcdedit.exe -set loadoptions ENABLE_INTEGRITY_CHECKS
-    bcdedit.exe -set TESTSIGNING OFF
-    ```
-
-10. Boot back into your BIOS/UEFI and turn back on Secure Boot
-11. The testsigning watermark (some text in the corner of your screen, on your wallpaper) should be gone now. If it is not gone, run step 7 again and reboot, then continue to step 10
-12. Open task manager, go to startup tab, and disable both "HD Audio Background Process" and "Realtek HD Audio Manager", and reboot.
-13. Done! Enjoy your crystal-clear audio experience.
+1. Access the device manager by right-clicking the "Start" button or by pressing Windows Key + X and selecting "Device Manager"
+2. Under "Sound, video and game controllers", right-click Realtek Audio and select "Update Driver."
+3. Click "Browse my computer for driver software," and then select "Let me pick from a list of available drivers on my computer."
+4. Uncheck the "Show compatible hardware" checkbox and scroll down to Microsoft in the list of vendors.
+5. Select the latest version of "High Definition Audio Device" and click next.
+6. You may receive a warning that says: Installing this device driver is not recommended because Windows cannot verify that it is compatible with your hardware.  If the driver is not compatible, your hardware will not work correctly and your computer might become unstable or stop working completely.  Do you want to continue installing this driver? This is quite normal; we're merely installing the generic Windows 10 audio driver distributed from Microsoft. Click yes and complete the installation.
+7. Restart your computer.
+8. Done! Enjoy your crystal-clear audio experience.
 
 ## Killer Wireless
 
@@ -80,7 +59,7 @@ To do so, download the .zip version of the Intel driver [here](https://www.intel
 
 1. Access the device manager by right-clicking the "Start" button or by pressing Windows Key + X and selecting "Device Manager"
 2. Under "Display adapters", right click on the Intel HD Graphics device, and select "Properties"
-3. Under the "Driver" tab in the properties dialog, select "Update Driver"
+3. Under the "Driver" tab in the properties dialog, select "Update Driver."
 4. Choose "Browse my computer for driver software" in the wizard, and select "Let me pick from a list of available drivers on my computer"
 5. Click the "Have Disk..." button and point the dialog at the directory into which the zip driver was extracted, locating the "igdlh64.inf" file therein.
 6. Select the driver and install it.
