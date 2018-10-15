@@ -28,7 +28,7 @@ The Waves MaxxAudio software, which is part of the Dell RealTek drivers and is p
 
 *NOTE*: Waves MaxxAudio is not the same as the Dell Audio Application. These are separate drivers and you should not follow these instructions if your laptop came with the Dell Audio Application instead of Waves MaxxAudio. These instructions will work for any laptop with the Realtek driver package, not only XPS.
 
-*NOTE2*: Previously, there were instructions here for installing a modified Realtek driver that removed Waves MaxxAudio. As of Windows 10 1809, these instructions no longer work and have been removed. If necessary, the instructions can be found [here](https://github.com/distantorigin/XPS-Enhancements/tree/43132b1df3eb53621d978fe2921ee27433afad43#audio)
+*NOTE2*: <b>Previously, there were instructions here for installing a modified Realtek driver that removed Waves MaxxAudio. As of Windows 10 1809, these instructions no longer work and have been removed. If necessary, the instructions can be found [here](https://github.com/distantorigin/XPS-Enhancements/tree/43132b1df3eb53621d978fe2921ee27433afad43#audio)</b>
 
 ### Instructions
 
