@@ -151,7 +151,7 @@ While this guide is primarily geared towards Windows users, the ArchWiki has ver
 * [Dell XPS 13 9350](https://wiki.archlinux.org/index.php/Dell_XPS_13_(9350))
 * [Dell XPS 13 9343](https://wiki.archlinux.org/index.php/Dell_XPS_13_(9343))
 * [Dell XPS 13 9333](https://wiki.archlinux.org/index.php/Dell_XPS_13_(9333))
-*[And potentially more by the time you read this](https://wiki.archlinux.org/index.php?search=dell+XPS&title=Special%3ASearch&go=Go)
+* [And potentially more by the time you read this](https://wiki.archlinux.org/index.php?search=dell+XPS&title=Special%3ASearch&go=Go)
 
 ### Power Plans
 
