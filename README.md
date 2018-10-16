@@ -3,7 +3,7 @@
 This is a comprehensive list of enhancements that aim to create the optimal Dell XPS 13/15 experience. Enhancements have been exclusively tested on a [Dell XPS 13 9370](http://www.dell.com/en-us/shop/dell-laptops/new-xps-13/spd/xps-13-9370-laptop), and should work on other configurations unless otherwise noted. Changes or additions are welcome in the form of pull requests.
 
 * [Audio](#audio)
-* [Notes Before You Begin](#notes-before-you-begin)
+  * [Notes Before You Begin](#notes-before-you-begin)
   * [Installation Instructions](#installation-instructions)
 * [Killer Wireless](#killer-wireless)
 * [Intel Graphics Drivers](#intel-graphics-drivers)
