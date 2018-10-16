@@ -3,7 +3,7 @@
 This is a comprehensive list of enhancements that aim to create the optimal Dell XPS 13/15 experience. Enhancements have been exclusively tested on a [Dell XPS 13 9370](http://www.dell.com/en-us/shop/dell-laptops/new-xps-13/spd/xps-13-9370-laptop), and should work on other configurations unless otherwise noted. Changes or additions are welcome in the form of pull requests.
 
 * [Audio](#audio)
-  * [Instructions](#instructions)
+  * [Installation Instructions](#installation_instructions)
 * [Killer Wireless](#killer-wireless)
 * [Intel Graphics Drivers](#intel-graphics-drivers)
 * [Bloatware and Driver Maintenance](#bloatware-and-driver-maintenance)
@@ -19,27 +19,62 @@ This is a comprehensive list of enhancements that aim to create the optimal Dell
 
 ## Audio
 
-The Waves MaxxAudio software, which is part of the Dell RealTek drivers and is packaged with the Dell factory image causes numerous problems:
+The Waves MaxxAudio software, which is part of the Dell Realtek drivers and is packaged with the Dell factory image causes numerous problems:
 
 * Even with all effects disabled, post-processing still occurs.
 * Connecting a device to the headphone jack will nag you with a pop-up asking you to pick what device you just plugged in (headphone, headset or microphone). Instructing the software not to ask again is inconsistent and will often be reset on reboot.
 * Using the Generic Microsoft High Definition Audio drivers will produce crackling and popping under certain conditions.
 * Waves MaxxAudio is known to push audio beyond acceptable volumes, which can cause physical speaker damage to your laptop.
 
-*NOTE*: Waves MaxxAudio is not the same as the Dell Audio Application. These are separate drivers and you should not follow these instructions if your laptop came with the Dell Audio Application instead of Waves MaxxAudio. These instructions will work for any laptop with the Realtek driver package, not only XPS.
+Luckily, a user has created a copy of the Dell Realtek drivers without Waves MaxxAudio, which removes post-PROCESSING and the GUI pop-up. This is confirmed to work on Dell XPS 13 93XX and Dell XPS 9550/9560. I'm running it on the latest Dell XPS 13 9370 with success. It may work on other Dell laptops that ship with Waves MaxxAudio; if you are aware of models where this driver works, please post to [/r/dell](https://www.reddit.com/r/dell/) and submit a pull request so I can update the guide.
 
-*NOTE2*: Previously, there were instructions here for installing a modified Realtek driver that removed Waves MaxxAudio. As of Windows 10 1809, these instructions no longer work and have been removed. If necessary, the instructions can be found [here](https://github.com/distantorigin/XPS-Enhancements/tree/43132b1df3eb53621d978fe2921ee27433afad43#audio)
+[Kevin Shroff's Modded Realtek Audio Drivers](https://github.com/kevinshroff/KSMRD-Modded-Realtek-Audio-Drivers/) | [Download](https://github.com/distantorigin/XPS-Enhancements/blob/master/Audio/KSMRD-v3.0.2.zip) | [Official Releases Page](https://github.com/kevinshroff/KSMRD-Modded-Realtek-Audio-Drivers/releases/)
 
-### Instructions
+### Notes Before You Begin
 
+Waves MaxxAudio is not the same as the Dell Audio Application. These are separate drivers and you should not run this if your laptop came with the Dell Audio Application instead of Waves MaxxAudio.
+
+I've included a copy of the latest driver available on Kevin's page in this repository for mirroring purposes, and the download link currently uses this version. I'll attempt to keep it as up-to-date as I can, but the official releases page may have more recent versions.
+
+Finally, for a brief stint, the instructions here were replaced with steps that encouraged users to use the generic Microsoft High Definition Audio drivers on Windows 10 1809 and later. I've since redacted these and advise reverting the changes; I was informed that the modified Realtek drivers are still being maintained. Steps below will assist you in this process:
 1. Access the device manager by right-clicking the "Start" button or by pressing Windows Key + X and selecting "Device Manager"
-2. Under "Sound, video and game controllers", right-click Realtek Audio and select "Update Driver."
+2. Under "Sound, video and game controllers", right-click High Definition Audio Device and select "Update Driver."
 3. Click "Browse my computer for driver software," and then select "Let me pick from a list of available drivers on my computer."
-4. Uncheck the "Show compatible hardware" checkbox and scroll down to Microsoft in the list of vendors.
-5. Select the latest version of "High Definition Audio Device" and click next.
-6. You may receive a warning that says: Installing this device driver is not recommended because Windows cannot verify that it is compatible with your hardware.  If the driver is not compatible, your hardware will not work correctly and your computer might become unstable or stop working completely.  Do you want to continue installing this driver? This is quite normal; we're merely installing the generic Windows 10 audio driver distributed from Microsoft. Click yes and complete the installation.
-7. Restart your computer.
-8. Done! Enjoy your crystal-clear audio experience.
+4. Select the latest iteration of Realtek Audio and click next.
+5. Allow the installation to finish. When you're prompted to restart, choose yes.
+6. Proceed to the official instructions below once your machine reboots.
+
+### Installation Instructions
+
+Steps are included below for mirroring purposes. All credit should be given to [Kevin Shroff](http://paypal.me/kevinshroff) and the above linked thread should be used as an official reference, as it is much more comprehensive.
+
+1. Disable Secure Boot: Secure Boot must be disabled in the BIOS/UEFI of your computer. This is required to install the driver, as this modded driver is not signed. After driver installation Secure Boot will be re-enabled in later steps. For most Dell XPS machines, UEFI settings can be accessed by repeatedly pressing F2 after turning on your computer.
+2. Run Command Prompt with Administrator privileges, then run the following commands, pressing enter after each:
+
+    ```powershell
+    bcdedit.exe -set loadoptions DISABLE_INTEGRITY_CHECKS
+    bcdedit.exe -set TESTSIGNING ON
+    ```
+
+3. Reboot
+4. Uninstall "Realtek High Definition Audio" from Control Panel, and uninstall "Realtek Audio" from Device Manager - do not reboot!
+5. Launch Disk Cleanup, select the drive for your Windows installation if necessary, click "Clean up system files" and check "Device driver packages." Click OK and allow Disk Cleanup some time to purge the old driver files.
+*In the event that you do not have this option in Disk Cleanup*: Install [Driver Sweeper](https://mega.nz/#!wN8BSIwK!Fo_sQzDsvLNkpwLngESfBaiBHtsMiskGxCjNZV_Vs7s), select Realtek - Sound, and then click clean - do not reboot!
+6. Navigate to where you extracted the driver zip download, and open the "Modded-KSMRD" folder. Run "Setup.exe" inside of it and install the driver just like a normal Realtek Audio driver.
+7. You will get a popup that asks if the driver is safe and should be installed - click "Yes, install this driver" (or something along those lines) - this popup comes up only because the driver signature is not signed, as it is modified. Driver itself is safe and you can scan it with Antivirus for assurance.
+8. After the installation is done, reboot
+9. Run Command Prompt with Administrator privileges, then run the following commands, pressing enter after each:
+
+    ```powershell
+    bcdedit.exe -set loadoptions ENABLE_INTEGRITY_CHECKS
+    bcdedit.exe -set TESTSIGNING OFF
+    ```
+
+10. Boot back into your BIOS/UEFI and turn back on Secure Boot
+11. The testsigning watermark (some text in the corner of your screen, on your wallpaper) should be gone now. If it is not gone, run step 7 again and reboot, then continue to step 10
+12. Open task manager, go to startup tab, and disable both "Realtek HD Audio Universal Service" and "Waves MaxxAudio Service Application", and reboot.
+13. Open the Windows Registry Editor (regedit.exe) and change the values of ALL instances of ConservationIdleTime and PerformanceIdleTime to FF FF FF under HKEY_LOCAL_MACHINE\SYSTEM\ (use CTRL+F to search for ConservationIdleTime, etc.).
+14. Done! Enjoy your crystal-clear audio experience.
 
 ## Killer Wireless
 
