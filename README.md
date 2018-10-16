@@ -12,7 +12,7 @@ This is a comprehensive list of enhancements that aim to create the optimal Dell
 * [Applications Key](#applications-key)
 * [Notebook Sleep FN Key shortcut](#notebook-sleep-fn-key-shortcut)
 * [Save Your Windows Product Key](#save-your-windows-product-key)
-* [Linux Tweaks](#linux-tweaks]
+* [Linux Tweaks](#linux-tweaks)
 * [Advanced Performance Tweaks](#advanced-performance-tweaks)
   * [Power Plans](#power-plans)
   * [Undervolting and Speed Shift](#undervolting-and-speed-shift)
