@@ -3,7 +3,8 @@
 This is a comprehensive list of enhancements that aim to create the optimal Dell XPS 13/15 experience. Enhancements have been exclusively tested on a [Dell XPS 13 9370](http://www.dell.com/en-us/shop/dell-laptops/new-xps-13/spd/xps-13-9370-laptop), and should work on other configurations unless otherwise noted. Changes or additions are welcome in the form of pull requests.
 
 * [Audio](#audio)
-  * [Installation Instructions](#installation_instructions)
+* [Notes Before You Begin](#notes-before-you-begin)
+  * [Installation Instructions](#installation-instructions)
 * [Killer Wireless](#killer-wireless)
 * [Intel Graphics Drivers](#intel-graphics-drivers)
 * [Bloatware and Driver Maintenance](#bloatware-and-driver-maintenance)
@@ -11,6 +12,7 @@ This is a comprehensive list of enhancements that aim to create the optimal Dell
 * [Applications Key](#applications-key)
 * [Notebook Sleep FN Key shortcut](#notebook-sleep-fn-key-shortcut)
 * [Save Your Windows Product Key](#save-your-windows-product-key)
+* [Linux Tweaks](#linux-tweaks]
 * [Advanced Performance Tweaks](#advanced-performance-tweaks)
   * [Power Plans](#power-plans)
   * [Undervolting and Speed Shift](#undervolting-and-speed-shift)
@@ -136,7 +138,20 @@ wmic path softwarelicensingservice get OA3xOriginalProductKey > "%UserProfile%\d
 
 This will create a file in your Documents folder aptly named Windows Product Key.txt which contains your Windows 10 product key.
 
-## Advanced Performance Tweaks
+## Linux Tweaks
+
+While this guide is primarily geared towards Windows users, the ArchWiki has very comprehensive information for Dell XPS machines running Linux, often including improvement-of-life adjustments, hardware warnings, power management tips, or Kernel modifications. Follow the link for your respective model.
+
+* [Dell XPS 15 9570](https://wiki.archlinux.org/index.php/Dell_XPS_15_9570)
+* [Dell XPS 15 9560](https://wiki.archlinux.org/index.php/Dell_XPS_15_9560)
+* [Dell XPS 15 9550](https://wiki.archlinux.org/index.php/Dell_XPS_15_(9550))
+* [Dell XPS 13 9370](https://wiki.archlinux.org/index.php/Dell_XPS_13_(9370))
+* [Dell XPS 13 2-in-1 (9365)](https://wiki.archlinux.org/index.php/Dell_XPS_13_2-in-1_(9365))
+* [Dell XPS 13 9360](https://wiki.archlinux.org/index.php/Dell_XPS_13_(9360))
+* [Dell XPS 13 9350](https://wiki.archlinux.org/index.php/Dell_XPS_13_(9350))
+* [Dell XPS 13 9343](https://wiki.archlinux.org/index.php/Dell_XPS_13_(9343))
+* [Dell XPS 13 9333](https://wiki.archlinux.org/index.php/Dell_XPS_13_(9333))
+*[And potentially more by the time you read this](https://wiki.archlinux.org/index.php?search=dell+XPS&title=Special%3ASearch&go=Go)
 
 ### Power Plans
 
