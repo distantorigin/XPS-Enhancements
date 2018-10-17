@@ -153,6 +153,8 @@ While this guide is primarily geared towards Windows users, the ArchWiki has ver
 * [Dell XPS 13 9333](https://wiki.archlinux.org/index.php/Dell_XPS_13_(9333))
 * [And potentially more by the time you read this](https://wiki.archlinux.org/index.php?search=dell+XPS&title=Special%3ASearch&go=Go)
 
+## Advanced Performance Tweaks
+
 ### Power Plans
 
 It is often beneficial to switch power plans automatically based on what you're doing with your laptop. An application that does a very good job at this is [Power Plan Switcher](https://github.com/petrroll/PowerSwitcher). Once installed, this little program will sit in your system tray and allows you to quickly change your power plan by right-clicking the icon. More importantly, it will start up with Windows and has the ability to switch the current plan when the AC adapter is plugged or unplugged. I have mine set to go to 'High Performance' when on AC and 'Balanced' when on battery.
