@@ -141,10 +141,11 @@ This will create a file in your Documents folder aptly named Windows Product Key
 ## Linux Tweaks
 
 While this guide is primarily geared towards Windows users, the ArchWiki has very comprehensive information for Dell XPS machines running Linux, often including improvement-of-life adjustments, hardware warnings, power management tips, or Kernel modifications. Follow the link for your respective model.
-
+* [Dell XPS 15 7590](https://wiki.archlinux.org/index.php/Dell_XPS_15_7590)
 * [Dell XPS 15 9570](https://wiki.archlinux.org/index.php/Dell_XPS_15_9570)
 * [Dell XPS 15 9560](https://wiki.archlinux.org/index.php/Dell_XPS_15_9560)
 * [Dell XPS 15 9550](https://wiki.archlinux.org/index.php/Dell_XPS_15_(9550))
+* [Dell XPS 13 2-in-1 (7390)](https://wiki.archlinux.org/index.php/Dell_XPS_13_(7390))
 * [Dell XPS 13 9370](https://wiki.archlinux.org/index.php/Dell_XPS_13_(9370))
 * [Dell XPS 13 2-in-1 (9365)](https://wiki.archlinux.org/index.php/Dell_XPS_13_2-in-1_(9365))
 * [Dell XPS 13 9360](https://wiki.archlinux.org/index.php/Dell_XPS_13_(9360))
