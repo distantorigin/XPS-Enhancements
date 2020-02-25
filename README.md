@@ -186,6 +186,5 @@ This section is still in progress and will be receiving updates in the near futu
 * Disable everything under Settings -> Privacy
 * Block unnecessary outbound network connectivity with [TinyWall](https://tinywall.pados.hu/)
 * Install [Classic Shell](http://classicshell.net/)
-* Install Windows 7 Task Manager [here](https://winaero.com/blog/get-classic-old-task-manager-in-windows-10/)
 * Disable unnecessary services by following [Black Viper's Windows 10 Service Configurations](http://www.blackviper.com/service-configurations/black-vipers-windows-10-service-configurations/)
 * Consider running software to take care of other aspects of Windows 10 spying, such as [WindowsSpyBlocker (GitHub Page)](https://github.com/crazy-max/WindowsSpyBlocker) or [ShutUP10](https://www.oo-software.com/en/shutup10)
