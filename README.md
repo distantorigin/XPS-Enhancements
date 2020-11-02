@@ -82,7 +82,7 @@ Steps are included below for mirroring purposes. All credit should be given to [
 
 The Killer wireless 1435/1535 NIC is notably unreliable, causing disconnections, lag, or even going as far as crashing routers with outdated firmware. For laptops earlier than the 9370, the card can easily be replaced with something like the Intel 8265 adapter. However, on the 9370 and presumably later models of the XPS 15, the NIC is soldered. I have had significant success by uninstalling the Killer Wireless Suite driver and control panel completely, and replacing it with only the driver distributed by Killer, not Dell.
 
-1. Download the installation package from [Killer's Website](https://www.killernetworking.com/driver-downloads/category/other-downloads), making sure that you only get the driver package, not the control panel.
+1. Download the installation package for your particular NIC model from [Killer's Website](https://support.killernetworking.com/software/), making sure that you  select the "Driver Only Package", not the Software Package.
 2. Uninstall all Killer Wireless products from your system, and reboot. (You will lose network connectivity temporarily - this is normal.)
 3. Install the driver file you downloaded, and reboot again.
 
